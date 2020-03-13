@@ -82,4 +82,10 @@ dependencies {
 
     implementation "androidx.concurrent:concurrent-futures:$lib_versions.future_version"
 
+    // Dagger Android
+    // https://github.com/google/dagger
+    implementation 'com.google.dagger:dagger-android:2.24'
+    implementation 'com.google.dagger:dagger-android-support:2.24'
+    // if you use the support libraries
+    kapt 'com.google.dagger:dagger-android-processor:2.24'
 }

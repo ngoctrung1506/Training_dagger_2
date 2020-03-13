@@ -12,9 +12,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import butterknife.BindView
 import butterknife.ButterKnife
+import dagger.android.AndroidInjection
 import gooner.App
 import gooner.factory.MainFactory
-import gooner.model.Computer
+import gooner.repository.UserRepo
 import gooner.viewmodel.UserViewModel
 import javax.inject.Inject
 
@@ -32,19 +33,16 @@ class MainActivity : AppCompatActivity() {
     lateinit var mUserViewModule: UserViewModel
 
     @Inject
-    lateinit var mComputer: Computer
+    lateinit var mRepo: UserRepo
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        (application as App).mAppComponent
-            .userDetailSubcomponent().build().inject(this)
+        AndroidInjection.inject(this)
 
         super.onCreate(savedInstanceState)
 
-        Log.d("Repository ", "")
-
-        mComputer.mName.showLog("MainActivity")
+        Log.d("Repository ", mRepo.toString())
 
         setContentView(R.layout.activity_main)
 
@@ -70,29 +68,6 @@ class MainActivity : AppCompatActivity() {
     private fun <T> T.showLog(logName: String) {
         Log.d(logName, this.toString())
     }
-
-//    fun scheduleNotification(tag: String, times: Long) {
-//
-//        var numbers = setOf(1, 2, 3)
-//        numbers.plus(5)
-//        numbers.iterator().forEach {
-//            Log.d("Set", it.toString())
-//        }
-//
-//        val data = workDataOf("shiftId" to "My-tag")
-//
-//        val constraint: Constraints = Constraints.Builder().apply {
-//            setRequiredNetworkType(NetworkType.CONNECTED)
-//        }.build()
-//        val request: OneTimeWorkRequest = OneTimeWorkRequestBuilder<RemindWorker>()
-//            .setInitialDelay(times, TimeUnit.SECONDS)
-//            .setConstraints(constraint)
-//            .addTag("My-tag")
-//            .setInputData(data)
-//            .build()
-//
-//        WorkManager.getInstance(this).enqueueUniqueWork(tag, ExistingWorkPolicy.REPLACE, request)
-//    }
 
 
 }

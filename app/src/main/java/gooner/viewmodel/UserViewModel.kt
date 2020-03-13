@@ -17,6 +17,8 @@ class UserViewModel(app: App) : ViewModel() {
     init {
 //        app.mAppComponent.repositorySubcomponent().build().inject(this)
 //        Log.d("Repository", mRetrofit.toString())
+//        AndroidInjection.inject(this)
+
     }
 
     var user = MutableLiveData<User>()

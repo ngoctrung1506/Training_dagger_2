@@ -3,12 +3,11 @@ package gooner.di.module
 import dagger.Module
 import dagger.Provides
 import gooner.api.GitHubApi
-import gooner.di.subcomponent.UserDetailSubcomponent
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
-@Module(subcomponents = [UserDetailSubcomponent::class])
+@Module
 class AppModule {
 
     @Provides
