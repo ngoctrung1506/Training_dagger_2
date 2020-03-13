@@ -13,8 +13,10 @@ class UserViewModel(app: App) : ViewModel() {
     @Inject
     lateinit var mUserRepo: UserRepo
 
+
     init {
-        app.mUserComponent.inject(this)
+//        app.mAppComponent.repositorySubcomponent().build().inject(this)
+//        Log.d("Repository", mRetrofit.toString())
     }
 
     var user = MutableLiveData<User>()

@@ -83,5 +83,3 @@ dependencies {
     implementation "androidx.concurrent:concurrent-futures:$lib_versions.future_version"
 
 }
-
-

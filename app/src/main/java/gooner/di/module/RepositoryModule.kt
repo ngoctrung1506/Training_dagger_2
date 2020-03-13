@@ -2,13 +2,13 @@ package gooner.di.module
 
 import dagger.Module
 import dagger.Provides
+import gooner.di.scope.ActivityScope
 import gooner.repository.UserRepo
-import javax.inject.Singleton
 
 @Module
-class UserRepoModule {
+class RepositoryModule {
 
     @Provides
-    @Singleton
+    @ActivityScope
     fun provideUserRepo() = UserRepo()
 }

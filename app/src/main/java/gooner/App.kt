@@ -7,13 +7,15 @@ class App : Application() {
 
     lateinit var mApiComponent: GitApiComponent
     lateinit var mComputerComponent: ComputerComponent
-    lateinit var mUserComponent: UserRepoComponent
+    lateinit var mAppComponent : AppComponent
+//    lateinit var mUserSubComponent: RepositorySubComponent
 
     override fun onCreate() {
         super.onCreate()
         mApiComponent = DaggerGitApiComponent.builder().build()
         mComputerComponent = DaggerComputerComponent.builder().build()
-        mUserComponent = DaggerUserRepoComponent.builder().build()
+        mAppComponent = DaggerAppComponent.builder().build()
+//        mUserSubComponent = DaggerRepositorySubComponent.builder().build()
 
     }
 }

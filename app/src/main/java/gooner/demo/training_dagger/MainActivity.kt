@@ -37,21 +37,20 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        (application as App).mComputerComponent.inject(this)
+        (application as App).mAppComponent
+            .userDetailSubcomponent().build().inject(this)
+
         super.onCreate(savedInstanceState)
+
+        Log.d("Repository ", "")
 
         mComputer.mName.showLog("MainActivity")
 
         setContentView(R.layout.activity_main)
 
-        val a = 6
-        val b = Integer.valueOf(a)
-
         val mainFactory = MainFactory(applicationContext as App)
         mUserViewModule = ViewModelProviders.of(this, mainFactory).get(UserViewModel::class.java)
         ButterKnife.bind(this)
-
-
     }
 
 
